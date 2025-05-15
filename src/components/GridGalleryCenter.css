@@ -1,0 +1,103 @@
+/* 字体引入 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+
+/* 模块容器，宽度占90%视口，最大800px */
+.greenhouse-section {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem 4vw;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  animation: sectionBreathe 6s ease-in-out infinite alternate;
+}
+
+/* 整体“呼吸”+轻微旋转 */
+@keyframes sectionBreathe {
+  0%   { transform: translateY(0) rotate(0.1deg); }
+  50%  { transform: translateY(4px) rotate(-0.2deg); }
+  100% { transform: translateY(0) rotate(0.1deg); }
+}
+
+/* 底部呼吸细线 */
+.greenhouse-breath-line {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(230,55,78,0) 0%,
+    rgba(230,55,78,0.5) 20%,
+    rgba(230,55,78,0.8) 50%,
+    rgba(230,55,78,0.5) 80%,
+    rgba(230,55,78,0) 100%
+  );
+  transform: translateX(-50%);
+  opacity: 0.6;
+  animation: breathLine 3s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes breathLine {
+  0%   { transform: translateX(-50%) translateY(0);    opacity: 0.4; }
+  50%  { transform: translateX(-50%) translateY(-8px);  opacity: 0.8; }
+  100% { transform: translateX(-50%) translateY(0);    opacity: 0.4; }
+}
+
+/* 段落文字基础 */
+.greenhouse-content p {
+  margin: 0 0 1.6rem;
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #555;
+  text-indent: 1.8em;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+  transition-delay: calc(0.15s * var(--order));
+}
+
+/* 首字母样式 */
+.greenhouse-content p::first-letter {
+  font-family: 'Uncial Antiqua', serif;
+  font-size: 2.6rem;
+  color: #e6374e;
+  font-weight: bold;
+  float: left;
+  line-height: 1;
+  margin-right: 0.3em;
+  margin-top: 0.1em;
+}
+
+/* 视口可见时触发入场 */
+.greenhouse-section.in-view .greenhouse-content p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 小屏响应 */
+@media (max-width: 600px) {
+  .greenhouse-section {
+    padding: 1.5rem 3vw;
+    margin: 2rem auto;
+  }
+  .greenhouse-content p {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+    transition-delay: calc(0.1s * var(--order));
+    text-indent: 1.2em;
+  }
+  .greenhouse-content p::first-letter {
+    font-size: 2.2rem;
+    margin-right: 0.25em;
+  }
+}

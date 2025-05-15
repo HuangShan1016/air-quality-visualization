@@ -1,0 +1,52 @@
+/* 外层整体容器：背景完整包裹内容，自适应屏幕宽度 */
+.pm25-year-with-pie-wrapper {
+  background-color: #1c1c1c;
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  max-width: 100%;
+  margin: 4rem auto;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+/* 图表内部容器：水平并排，自适应 */
+.pm25-year-with-pie {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* 折线图：占据屏幕大部分宽度 */
+.pm25-year-with-pie .line-chart {
+  flex: 1 1 58%; /* 大约占六成空间 */
+  min-width: 300px;
+  height: 400px;
+  position: relative;
+}
+
+/* 饼图：比例适配且文字不变 */
+.pm25-year-with-pie .pie-chart {
+  flex: 1 1 38%;
+  min-width: 240px;
+  height: 400px;
+  position: relative;
+}
+
+/* 移动端自动纵向堆叠 */
+@media (max-width: 768px) {
+  .pm25-year-with-pie {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pm25-year-with-pie .line-chart,
+  .pm25-year-with-pie .pie-chart {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}

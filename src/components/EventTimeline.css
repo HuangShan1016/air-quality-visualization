@@ -1,0 +1,122 @@
+/* 外部容器 */
+.timeline-wrapper {
+  background-color: #0d0d0d;
+  padding: 5rem 2rem;
+}
+
+.timeline-inner {
+  max-width: 960px;
+  margin: auto;
+}
+
+.timeline-title {
+  text-align: center;
+  font-size: 2rem;
+  font-family: 'ZCOOL KuaiLe', sans-serif;
+  color: #ff6e87;
+  margin-bottom: 2.5rem;
+}
+
+/* 线条区域包裹 */
+.timeline-line-wrapper {
+  position: relative;
+  padding: 0;
+}
+
+/* 中轴线动画 */
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background-image: linear-gradient(to bottom, #666 40%, transparent 0%);
+  background-size: 2px 12px;
+  background-repeat: repeat-y;
+  animation: timeline-scroll 3s linear infinite;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+@keyframes timeline-scroll {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 12px;
+  }
+}
+
+/* 列表区域 */
+.timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.5rem;
+  position: relative;
+  transform: translateX(-60px); 
+}
+
+.timeline-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 140px;
+  text-align: center;
+  position: relative;
+}
+
+.timeline-dot {
+  width: 14px;
+  height: 14px;
+  background: #ff6e87;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #ff6e87aa;
+  margin-bottom: 0.5rem;
+  z-index: 2;
+}
+
+.timeline-date {
+  font-size: 1rem;
+  color: #bbb;
+  font-family: 'Noto Sans SC';
+}
+
+/* 右侧：卡片内容 */
+.timeline-content {
+  background: linear-gradient(
+    to right,
+    rgba(60, 60, 80, 0.9),
+    rgba(10, 10, 15, 1)
+  );
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  flex: 1;
+}
+
+.timeline-content h4 {
+  font-size: 1.2rem;
+  color: #eee;
+  margin-bottom: 0.5rem;
+  font-family: 'Noto Sans SC';
+}
+
+.timeline-content p {
+  font-size: 0.95rem;
+  color: #aaa;
+  line-height: 1.6;
+  font-family: 'Noto Sans SC';
+}

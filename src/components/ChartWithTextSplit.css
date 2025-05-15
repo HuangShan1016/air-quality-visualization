@@ -1,0 +1,64 @@
+/* 整体布局 */
+.grid-gallery-section {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  background: #1a1a1a;
+  border-radius: 1rem;
+  color: #eee;
+}
+
+/* 左右侧文本区公用 */
+.grid-gallery-aside {
+  flex: 1;
+  max-width: 25%;
+}
+
+.grid-gallery-title {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #e6374e;
+}
+
+/* 中间图库 */
+.grid-gallery-center {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  flex: 2;
+}
+
+.grid-gallery-cell {
+  background: #2a2a2a;
+  border-radius: 0.75rem;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 图像占位 */
+.grid-gallery-image-placeholder {
+  color: #555;
+  font-size: 1.2rem;
+}
+
+/* 文本样式 */
+.grid-gallery-text {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* 中世纪风格字体 */
+.medieval-font {
+  font-family: 'IM Fell DW Pica', 'Yuanti SC', serif;
+}
+
+/* 右侧列表 */
+.grid-gallery-list {
+  list-style: disc inside;
+  line-height: 1.6;
+  font-size: 1rem;
+  padding-left: 0.5rem;
+}
