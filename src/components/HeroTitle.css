@@ -1,61 +1,158 @@
-/* 文件：src/components/HeroTitle.css */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&display=swap');
+
 .hero-title-section {
   position: relative;
-  width: 100%;
-  height: 30vh;
-  min-height: 200px;
-  overflow: hidden;
+  height: 60vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #111;
-}
-
-.hero-title-container {
-  position: relative;
   text-align: center;
+  background: radial-gradient(circle at 10% 20%, #1e1f2b, #0b0c10);
+  overflow: hidden;
+  padding: 0 1rem;
 }
-
-.decorative-circles {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 300px; height: 300px;
-}
-
-.circle {
-  position: absolute;
-  border: 2px solid rgba(204, 59, 90, 0.3);
-  border-radius: 50%;
-}
-
-.circle-1 { width: 300px; height: 300px; }
-.circle-2 { width: 220px; height: 220px; border-width: 1.5px; }
-.circle-3 { width: 140px; height: 140px; border-width: 1px; }
 
 .hero-title-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 4.2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: linear-gradient(to bottom, #ffffff, #cfd3df);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 6px rgba(255,255,255,0.25);
   position: relative;
-  color: #cc3b5a;
-  font-size: 5rem;
-  font-family: 'ZCOOL KuaiLe', sans-serif;
-  margin-bottom: 1rem;
   z-index: 2;
 }
 
-.title-boxes {
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 400px; height: 400px;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-content: space-around;
-  z-index: 1;
+.title-underline {
+  width: 130%;
+  height: 5px;
+  background: linear-gradient(to right, transparent, #ffffff, #ffffff, transparent);
+  margin-top: 0.5rem;
+  animation: expandLine 1.2s ease-out forwards, pulseGlow 3s ease-in-out infinite;
+  transform: scaleX(0);
+  transform-origin: center;
+  box-shadow: 0 0 12px rgba(255,255,255,0.7);
+  opacity: 1;
+  z-index: 2;
 }
 
-.little-box {
-  width: 20px; height: 20px;
-  background-color: rgba(204, 59, 90, 0.5);
-  border-radius: 4px;
+@keyframes expandLine {
+  to { transform: scaleX(1); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: #ff6e87 !important;
+  font-family: 'Noto Sans SC', sans-serif;
+  margin-top: 1rem;
+  z-index: 2;
+}
+
+/* 星体背景（分层漂浮） */
+.starfield {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-repeat: repeat;
+  z-index: 0;
+}
+
+.starfield-1 {
+  background-image: radial-gradient(#ffffff 1px, transparent 1px);
+  background-size: 80px 80px;
+  animation: drift1 60s linear infinite;
+  opacity: 0.04;
+}
+
+.starfield-2 {
+  background-image: radial-gradient(#ffffff 1px, transparent 1px);
+  background-size: 100px 100px;
+  animation: drift2 90s linear infinite;
+  opacity: 0.035;
+}
+
+.starfield-3 {
+  background-image: radial-gradient(#ffffff 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: drift3 120s linear infinite;
+  opacity: 0.05;
+}
+
+@keyframes drift1 {
+  from { background-position: 0 0; }
+  to { background-position: -100px 100px; }
+}
+@keyframes drift2 {
+  from { background-position: 50px 0; }
+  to { background-position: 0 200px; }
+}
+@keyframes drift3 {
+  from { background-position: 100px 50px; }
+  to { background-position: -150px 150px; }
+}
+
+/* 多分布圆环 */
+.ring-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+}
+
+.ring {
+  position: absolute;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  animation: rotateRing infinite linear;
+}
+
+.ring-1 {
+  width: 280px; height: 280px;
+  animation-duration: 50s;
+}
+
+.ring-2 {
+  width: 420px; height: 420px;
+  animation-duration: 70s;
+  animation-direction: reverse;
+}
+
+.ring-3 {
+  width: 600px; height: 600px;
+  animation-duration: 90s;
+}
+
+.ring-4 {
+  width: 220px; height: 220px;
+  top: -120px; left: -220px;
+  animation-duration: 65s;
+}
+
+.ring-5 {
+  width: 350px; height: 350px;
+  bottom: -160px; right: -240px;
+  animation-duration: 80s;
+  animation-direction: reverse;
+}
+
+.ring-6 {
+  width: 500px; height: 500px;
+  top: -180px; right: -100px;
+  animation-duration: 95s;
+}
+
+@keyframes rotateRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
