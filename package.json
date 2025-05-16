@@ -13,9 +13,12 @@
     "react-locomotive-scroll": "^0.2.2",
     "react-scripts": "5.0.1"
   },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -39,8 +42,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "typescript": "^5.8.3"
   }
 }
